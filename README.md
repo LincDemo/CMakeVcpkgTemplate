@@ -94,6 +94,12 @@ Use Project
 
 这个文件一是VSCode的 CMake/CMake Tool 插件在使用，二是现在许多新版本的IDE都能支持这个文件（CLion要25版本才支持），更方便你去跨平台使用
 
+### CMakePresets.json 文件不起效的替代方案
+
+VS、VSCode那边支持度挺好，这边说一下CLion-MinGW这样
+
+CMake设置里可以创建两个环境，ninja和vs。前者用MinGW工具链+Ninja生成器，后者用VS工具链+VS生成器，两者的CMake option都要加上 `-DCMAKE_TOOLCHAIN_FILE=./vcpkg/scripts/buildsystems/vcpkg.cmake` (不行就绝对路径)
+
 ### github工作流
 
 略，这里我暂时借用 CppCMakeVcpkgTemplate 的内容
